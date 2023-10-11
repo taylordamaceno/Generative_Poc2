@@ -1,0 +1,23 @@
+Previsão Orçamentária
+Este projeto tem o objetivo de gerar uma previsão orçamentária para o próximo mês com base em dados retirados de uma tabela de finanças. Ele então utiliza a API da OpenAI para obter uma previsão orçamentária textual e, posteriormente, gera um arquivo PDF com essa previsão.
+
+Funcionamento:
+Conexão com o banco de dados: O programa estabelece uma conexão com o banco de dados através da biblioteca psycopg2, utilizando a DATABASE_URL proveniente do arquivo de configuração.
+
+Obtenção dos dados: Uma vez conectado ao banco de dados, o programa busca informações específicas da tabela financas. Os campos extraídos incluem: preco_medio, valor_calculo, taxa_juros, inflacao e crescimento_vendas.
+
+Geração da previsão: Utilizando a API da OpenAI, o programa envia os dados coletados e recebe de volta uma previsão orçamentária textual.
+
+Criação do PDF: Com a previsão em mãos, o programa utiliza a biblioteca FPDF para gerar um arquivo PDF contendo a previsão.
+
+Execução: Ao executar o script, o programa passa por todas as etapas descritas acima e exibe a previsão final.
+
+Requisitos:
+Python 3.x
+Bibliotecas: psycopg2, openai, FPDF
+Arquivo config.py contendo as constantes DATABASE_URL (string de conexão com o banco de dados) e API_KEY (chave para acesso à API da OpenAI).
+Como executar:
+Certifique-se de que todas as bibliotecas necessárias estão instaladas.
+Configure o arquivo config.py com as informações apropriadas de conexão ao banco de dados e a chave da API da OpenAI.
+Execute o script usando o comando: python nome_do_arquivo.py.
+Ao final da execução, você terá um arquivo chamado previsoes.pdf com a previsão orçamentária para o próximo mês.
